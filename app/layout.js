@@ -1,4 +1,11 @@
+import { Roboto } from "next/font/google";
+import Header from "./_components/header/Header";
 import "./globals.css";
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800", "900"],
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -7,8 +14,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${roboto.className} antialiased`}>
+      <body className=" bg-stone-300 flex flex-col h-screen">
+        <header className=" w-full">
+          <Header />
+        </header>
+        <main className=" bg-stone-50 flex-1 mt-1 mb-3 w-full">{children}</main>
+      </body>
     </html>
   );
 }
