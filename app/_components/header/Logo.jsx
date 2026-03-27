@@ -1,22 +1,27 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
+
+import logoImage from "@/public/logo-v-1.png";
 
 function Logo() {
   return (
-    <div className=" flex items-center gap-1">
+    <Link href={"/"} className=" flex items-center gap-1">
       <div className="w-full">
         <Image
           alt="logo"
-          src={"/logo-v-1.png"}
-          width={40}
-          height={40}
+          src={logoImage}
+          width={150}
+          height={35}
           quality={100}
+          placeholder="blur"
+          priority
         />
       </div>
-      <h1 className=" font-extrabold uppercase text-[1.2rem] text-white">
+      <h1 className=" font-extrabold uppercase text-[1.2rem] text-primary">
         scribely
       </h1>
-    </div>
+    </Link>
   );
 }
 
